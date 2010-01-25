@@ -1,11 +1,11 @@
 # == Schema Information
-# Schema version: 20100125151231
+# Schema version: 20100125153047
 #
 # Table name: assets
 #
 #  id                     :integer         not null, primary key
 #  kunde                  :string(255)
-#  serial                 :string(255)
+#  serial                 :string(255)     not null
 #  mla                    :string(255)
 #  modell                 :string(255)
 #  delivery_einheit       :string(255)

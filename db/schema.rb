@@ -9,11 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100125151231) do
+ActiveRecord::Schema.define(:version => 20100125153047) do
 
   create_table "assets", :force => true do |t|
     t.string   "kunde"
-    t.string   "serial"
+    t.string   "serial",                 :null => false
     t.string   "mla"
     t.string   "modell"
     t.string   "delivery_einheit"
