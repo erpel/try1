@@ -1,0 +1,64 @@
+<% title "Asset" %>
+
+<p>
+  <strong>Kunde:</strong>
+  <%=h @asset.kunde %>
+</p>
+<p>
+  <strong>Serial:</strong>
+  <%=h @asset.serial %>
+</p>
+<p>
+  <strong>Mla:</strong>
+  <%=h @asset.mla %>
+</p>
+<p>
+  <strong>Modell:</strong>
+  <%=h @asset.modell %>
+</p>
+<p>
+  <strong>Delivery Einheit:</strong>
+  <%=h @asset.delivery_einheit %>
+</p>
+<p>
+  <strong>Wartungsende:</strong>
+  <%=h @asset.wartungsende %>
+</p>
+<p>
+  <strong>Standortplz:</strong>
+  <%=h @asset.standortPLZ %>
+</p>
+<p>
+  <strong>Standortort:</strong>
+  <%=h @asset.standortOrt %>
+</p>
+<p>
+  <strong>Standortstrasse:</strong>
+  <%=h @asset.standortStrasse %>
+</p>
+<p>
+  <strong>Standortkunde Gebaeude:</strong>
+  <%=h @asset.standortKunde_gebaeude %>
+</p>
+<p>
+  <strong>Kontaktosy Einheit:</strong>
+  <%=h @asset.kontaktOSY_einheit %>
+</p>
+<p>
+  <strong>Vertragsnummer:</strong>
+  <%=h @asset.vertragsnummer %>
+</p>
+<p>
+  <strong>Asset:</strong>
+  <%=h @asset.asset_id %>
+</p>
+<p>
+  <strong>Restneu:</strong>
+  <%=h @asset.restNeu %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_asset_path(@asset) %> |
+  <%= link_to "Destroy", @asset, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", assets_path %>
+</p>

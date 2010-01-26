@@ -1,0 +1,60 @@
+<% form_for @asset do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :kunde %><br />
+    <%= f.text_field :kunde %>
+  </p>
+  <p>
+    <%= f.label :serial %><br />
+    <%= f.text_field :serial %>
+  </p>
+  <p>
+    <%= f.label :mla %><br />
+    <%= f.text_field :mla %>
+  </p>
+  <p>
+    <%= f.label :modell %><br />
+    <%= f.text_field :modell %>
+  </p>
+  <p>
+    <%= f.label :delivery_einheit %><br />
+    <%= f.text_field :delivery_einheit %>
+  </p>
+  <p>
+    <%= f.label :wartungsende %><br />
+    <%= f.date_select :wartungsende, :include_blank => true %>
+  </p>
+  <p>
+    <%= f.label :standortPLZ %><br />
+    <%= f.text_field :standortPLZ %>
+  </p>
+  <p>
+    <%= f.label :standortOrt %><br />
+    <%= f.text_field :standortOrt %>
+  </p>
+  <p>
+    <%= f.label :standortStrasse %><br />
+    <%= f.text_field :standortStrasse %>
+  </p>
+  <p>
+    <%= f.label :standortKunde_gebaeude %><br />
+    <%= f.text_field :standortKunde_gebaeude %>
+  </p>
+  <p>
+    <%= f.label :kontaktOSY_einheit %><br />
+    <%= f.text_field :kontaktOSY_einheit %>
+  </p>
+  <p>
+    <%= f.label :vertragsnummer %><br />
+    <%= f.text_field :vertragsnummer %>
+  </p>
+  <p>
+    <%= f.label :asset_id %><br />
+    <%= f.text_field :asset_id %>
+  </p>
+  <p>
+    <%= f.label :restNeu %><br />
+    <%= f.text_field :restNeu %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

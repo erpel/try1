@@ -1,0 +1,10 @@
+/* @override http://localhost:3000/stylesheets/erpel.css?1264446229 */
+
+#AssetIndex {
+	border: 2px solid black;
+}
+
+#AssetIndex th,td {
+		border: 1px solid grey;
+
+}

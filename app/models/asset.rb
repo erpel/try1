@@ -23,4 +23,13 @@
 #
 
 class Asset < ActiveRecord::Base
+	validates_uniqueness_of :serial, :case_sensitive => false
+	validates_presence_of :serial
+	
+	comma do
+		kunde
+		serial
+		mla
+		modell
+	end
 end
