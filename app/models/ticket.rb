@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100127113343
+# Schema version: 20100127162204
 #
 # Table name: tickets
 #
@@ -12,6 +12,9 @@
 #  langtext     :text
 #  created_at   :datetime
 #  updated_at   :datetime
+#  level        :string(255)
+#  model        :string(255)
+#  location     :string(255)
 #
 
 class Ticket < ActiveRecord::Base

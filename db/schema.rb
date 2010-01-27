@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100127113343) do
+ActiveRecord::Schema.define(:version => 20100127162204) do
 
   create_table "assets", :force => true do |t|
     t.string   "kunde"
@@ -41,6 +41,9 @@ ActiveRecord::Schema.define(:version => 20100127113343) do
     t.text     "langtext"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "level"
+    t.string   "model"
+    t.string   "location"
   end
 
 end
