@@ -23,7 +23,7 @@
 #
 
 class Asset < ActiveRecord::Base
-	validates_uniqueness_of :serial, :case_sensitive => false
+	#validates_uniqueness_of :serial, :case_sensitive => false
 	validates_presence_of :serial
 	
 	comma do
@@ -31,5 +31,15 @@ class Asset < ActiveRecord::Base
 		serial
 		mla
 		modell
+		delivery_einheit
+		wartungsende
+		standortPLZ
+		standortOrt
+		standortStrasse
+		standortKunde_gebaeude
+		kontaktOSY_einheit
+		vertragsnummer
+		asset_id
+		restNeu
 	end
 end
