@@ -1,0 +1,28 @@
+<% form_for @ticket do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :datum %><br />
+    <%= f.date_select :datum %>
+  </p>
+  <p>
+    <%= f.label :ticketnummer %><br />
+    <%= f.text_field :ticketnummer %>
+  </p>
+  <p>
+    <%= f.label :prio %><br />
+    <%= f.text_field :prio %>
+  </p>
+  <p>
+    <%= f.label :serial %><br />
+    <%= f.text_field :serial %>
+  </p>
+  <p>
+    <%= f.label :sunID %><br />
+    <%= f.text_field :sunID %>
+  </p>
+  <p>
+    <%= f.label :langtext %><br />
+    <%= f.text_area :langtext %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100125153047) do
+ActiveRecord::Schema.define(:version => 20100127113343) do
 
   create_table "assets", :force => true do |t|
     t.string   "kunde"
@@ -26,6 +26,19 @@ ActiveRecord::Schema.define(:version => 20100125153047) do
     t.string   "vertragsnummer"
     t.string   "asset_id"
     t.string   "restNeu"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "assets", ["serial"], :name => "index_assets_on_serial"
+
+  create_table "tickets", :force => true do |t|
+    t.date     "datum"
+    t.string   "ticketnummer"
+    t.integer  "prio"
+    t.string   "serial"
+    t.string   "sunID"
+    t.text     "langtext"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

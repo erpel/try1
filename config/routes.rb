@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :tickets
+
   map.resources		:assets
   map.all_assets	'/all_assets/',	:controller => 'assets', :action => 'index_all' 
 
