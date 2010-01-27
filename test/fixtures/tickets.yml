@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  datum: 2010-01-27
+  ticketnummer: MyString
+  prio: 1
+  serial: MyString
+  sunID: MyString
+  langtext: MyText
+
+two:
+  datum: 2010-01-27
+  ticketnummer: MyString
+  prio: 1
+  serial: MyString
+  sunID: MyString
+  langtext: MyText
