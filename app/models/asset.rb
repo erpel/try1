@@ -26,6 +26,12 @@ class Asset < ActiveRecord::Base
 	#validates_uniqueness_of :serial, :case_sensitive => false
 	validates_presence_of :serial
 	
+	def self.search(search, page)
+		paginate :per_page => 10, :page => page,
+			:conditions => ['serial LIKE ?', "%#{search}%"]
+	end
+	
+	
 	comma do
 		kunde
 		serial

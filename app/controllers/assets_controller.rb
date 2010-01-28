@@ -7,7 +7,8 @@ class AssetsController < ApplicationController
     end
   end
 	def index
-		@assets = Asset.paginate :per_page => 10, :page => params[:page]
+		#@assets = Asset.paginate :per_page => 10, :page => params[:page]
+		@assets = Asset.search(params[:search], params[:page])
 	end
   
   def show
@@ -48,4 +49,5 @@ class AssetsController < ApplicationController
     flash[:notice] = "Successfully destroyed asset."
     redirect_to assets_url
   end
+  
 end
