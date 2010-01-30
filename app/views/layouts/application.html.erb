@@ -17,7 +17,8 @@
         <a href="<%= params[:controller] %>">
         <h1><%=h yield(:title) %></h1></a>
       <%- end -%>
-      
+      <div id="navigation" ><ul><li><%= link_to assets_path, assets_path%></li><li><%= link_to tickets_path, tickets_path %> </li>  </ul>  </div> 
+
       <%= yield %>
     </div>
   </body>

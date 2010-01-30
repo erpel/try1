@@ -5,18 +5,24 @@
     <th>Datum</th>
     <th>Ticketnummer</th>
     <th>Prio</th>
-    <th>Serial</th>
     <th>Sunid</th>
+    <th>Serial</th>
+    <th>Wartungslevel</th>
+    <th>Modell</th>
+    <th>Standort</th>
     <th>Langtext</th>
   </tr>
   <% for ticket in @tickets %>
-    <tr>
+    <tr class="<%= cycle 'zfarb0', 'zfarb1' %>">
       <td><%=h ticket.datum %></td>
       <td><%=h ticket.ticketnummer %></td>
-      <td><%=h ticket.prio %></td>
-      <td><%=h ticket.serial %></td>
+      <td <%= 'style="background-color:red"' if ticket.prio==1 %> ><%=h ticket.prio %></td>
       <td><%=h ticket.sunID %></td>
-      <td><%=h ticket.langtext %></td>
+      <td><%=h ticket.serial %></td>
+      <td><%=h ticket.level %></td>
+      <td><%=h ticket.model %></td>
+      <td><%=h ticket.location %></td>
+      <td><%=h ticket.short_langtext %></td>
       <td><%= link_to "Show", ticket %></td>
       <td><%= link_to "Edit", edit_ticket_path(ticket) %></td>
       <td><%= link_to "Destroy", ticket, :confirm => 'Are you sure?', :method => :delete %></td>
