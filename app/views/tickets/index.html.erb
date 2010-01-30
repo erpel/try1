@@ -1,16 +1,16 @@
 <% title "Tickets" %>
 
-<table>
+<table id="tickettabelle" >
   <tr>
-    <th>Datum</th>
-    <th>Ticketnummer</th>
-    <th>Prio</th>
-    <th>Sunid</th>
-    <th>Serial</th>
-    <th>Wartungslevel</th>
-    <th>Modell</th>
-    <th>Standort</th>
-    <th>Langtext</th>
+    <th id="tickettabelle_datum">Datum</th>
+    <th id="tickettabelle_ticketnummer" >Ticketnummer</th>
+    <th id="tickettabelle_prio" >Prio</th>
+    <th id="tickettabelle_sunid" >Sunid</th>
+    <th id="tickettabelle_serial" >Serial</th>
+    <th id="tickettabelle_wartungslevel" >Wartungslevel</th>
+    <th id="tickettabelle_modell" >Modell</th>
+    <th id="tickettabelle_standort" >Standort</th>
+    <th id="tickettabelle_langtext" >Langtext</th>
   </tr>
   <% for ticket in @tickets %>
     <tr class="<%= cycle 'zfarb0', 'zfarb1' %>">

@@ -2,6 +2,8 @@
 	http://localhost:3000/stylesheets/erpel.css?1264446229
 	http://localhost:3000/stylesheets/erpel.css?1264446959
 	http://localhost:3000/stylesheets/erpel.css?1264770688
+	http://localhost:3000/stylesheets/erpel.css?1264865756
+	http://localhost:3000/stylesheets/erpel.css?1264871093
 */
 
 div#navigation li {
@@ -23,3 +25,13 @@ tr.zfarb1 {
 		border: 1px solid grey;
 
 }
+
+#tickettabelle_langtext {
+	min-width: 15em;
+	max-width: 25em;
+}
+
+th#tickettabelle_modell {
+	min-width: 10em;
+}
+

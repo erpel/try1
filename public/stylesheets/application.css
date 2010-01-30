@@ -1,3 +1,9 @@
+/* @override 
+	http://localhost:3000/stylesheets/application.css?1264859325
+	http://localhost:3000/stylesheets/application.css?1264869628
+	http://localhost:3000/stylesheets/application.css?1264871092
+*/
+
 body {
   background-color: #4B7399;
   font-family: Verdana, Helvetica, Arial;
@@ -20,12 +26,12 @@ a {
 
 #container {
 
-  width: 75%;
-  margin: 0 auto;
+  width: 95%;
   background-color: #FFF;
-  padding: 20px 40px;
+  padding: 20px 40px 20px 20px;
   border: solid 1px black;
-  margin-top: 20px;
+	overflow: auto;
+	margin: 20px auto 0;
 }
 
 #flash_notice, #flash_error {
