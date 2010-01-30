@@ -1,8 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
-	map.resources		:tickets
-	map.resources		:assets
-	
-	map.all_assets		'/all_assets/',	:controller => 'assets', :action => 'index_all' 
+  map.resources :tickets
+
+  map.resources		:assets
+  map.all_assets	'/all_assets/',	:controller => 'assets', :action => 'index_all' 
 
   # The priority is based upon order of creation: first created -> highest priority.
 

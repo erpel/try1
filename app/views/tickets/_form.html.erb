@@ -13,13 +13,8 @@
     <%= f.text_field :prio %>
   </p>
   <p>
-  	<% 	if @ticket.serial.nil? == false 
-  			options={:disabled => 'disabled'}
-  		else
-  			options={}
-  		end %>	
     <%= f.label :serial %><br />
-    <%= f.text_field :serial, options %>
+    <%= f.text_field :serial %>
   </p>
   <p>
     <%= f.label :sunID %><br />
