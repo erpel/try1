@@ -9,6 +9,11 @@ class AssetsController < ApplicationController
 	def index
 		#@assets = Asset.paginate :per_page => 10, :page => params[:page]
 		@assets = Asset.search(params[:search], params[:page])
+		respond_to do |format|
+			format.html #index.html.erb
+			format.csv { @assets = Asset.all
+				render :csv => @assets }
+		end
 	end
   
   def show
