@@ -18,4 +18,18 @@
 #
 
 class Ticket < ActiveRecord::Base
+	
+#implementierung von short_langtext nach 
+#http://de.wikibooks.org/wiki/Ruby_on_Rails:_Erste_Schritte#Erkl.C3.A4rung_k.C3.BCrzen
+	class ActionviewTextHelper
+		include ActionView::Helpers::TextHelper
+	end
+	
+	def texthelper
+		@h ||= ActionviewTextHelper.new
+	end
+	
+	def short_langtext
+		texthelper.truncate(self.langtext)
+	end
 end
