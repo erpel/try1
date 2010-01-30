@@ -1,5 +1,20 @@
-/* @override http://localhost:3000/stylesheets/erpel.css?1264446229 */
+/* @override 
+	http://localhost:3000/stylesheets/erpel.css?1264446229
+	http://localhost:3000/stylesheets/erpel.css?1264446959
+	http://localhost:3000/stylesheets/erpel.css?1264770688
+*/
 
+div#navigation li {
+display: inline;
+padding: 0px 1em
+}
+
+tr.zfarb0 {
+	background-color:white;	
+}
+tr.zfarb1 {
+	background-color: silver;
+}
 #AssetIndex {
 	border: 2px solid black;
 }
