@@ -1,0 +1,17 @@
+# == Schema Information
+# Schema version: 20100131154741
+#
+# Table name: users
+#
+#  id                :integer         not null, primary key
+#  login             :string(255)     not null
+#  crypted_password  :string(255)     not null
+#  password_salt     :string(255)     not null
+#  persistence_token :string(255)     not null
+#  created_at        :datetime
+#  updated_at        :datetime
+#
+
+class User < ActiveRecord::Base
+	acts_as_authentic
+end

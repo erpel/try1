@@ -8,16 +8,27 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <div id="container">
-      <%- flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <%- end -%>
+	<div id="container">
+		<%- flash.each do |name, msg| -%>
+			<%= content_tag :div, msg, :id => "flash_#{name}" %>
+		<%- end -%>
+		<div id="navigation" ><ul> <!--#This should eventually be pushed into a partial.-->
+		<% if !current_user %>
+			<li><%= link_to "Register", new_account_path %></li> 
+			<li><%= link_to "Log In", new_user_session_path %></li>
+		<% else %>
+			<li><%= link_to "My Account", account_path %></li>
+			<li><%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %></li>
+		<% end %> 
+		<li><%= link_to assets_path, assets_path%></li>
+		<li><%= link_to tickets_path, tickets_path %> </li>
+		</ul></div> 
       
       <%- if show_title? -%>
         <a href="<%= params[:controller] %>">
         <h1><%=h yield(:title) %></h1></a>
       <%- end -%>
-      <div id="navigation" ><ul><li><%= link_to assets_path, assets_path%></li><li><%= link_to tickets_path, tickets_path %> </li>  </ul>  </div> 
+      
 
       <%= yield %>
     </div>
