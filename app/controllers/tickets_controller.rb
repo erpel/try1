@@ -1,4 +1,8 @@
 class TicketsController < ApplicationController
+
+	filter_resource_access
+
+
   def index
     @tickets = Ticket.all
   end
@@ -16,6 +20,7 @@ class TicketsController < ApplicationController
     @ticket.location = Asset.find(:first, :conditions => [ 'serial LIKE ?', @ticket.serial ]).standortOrt
     @ticket.model = Asset.find(:first, :conditions => [ 'serial LIKE ?', @ticket.serial ]).modell
     @ticket.level = Asset.find(:first, :conditions => [ 'serial LIKE ?', @ticket.serial ]).mla
+    @ticket.owner = current_user.login
     if @ticket.save
       flash[:notice] = "Successfully created ticket."
       redirect_to @ticket

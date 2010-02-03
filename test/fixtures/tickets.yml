@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100131154741
+# Schema version: 20100203152138
 #
 # Table name: tickets
 #
@@ -15,6 +15,7 @@
 #  level        :string(255)
 #  model        :string(255)
 #  location     :string(255)
+#  owner        :string(255)
 #
 
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html

@@ -14,9 +14,11 @@
 		<%- end -%>
 		<div id="navigation" ><ul> <!--#This should eventually be pushed into a partial.-->
 		<% if !current_user %>
+			<li> Nicht eingeloggt.</li>  
 			<li><%= link_to "Register", new_account_path %></li> 
 			<li><%= link_to "Log In", new_user_session_path %></li>
 		<% else %>
+			<li>Eingeloggt als: <%= current_user.login %> </li> 
 			<li><%= link_to "My Account", account_path %></li>
 			<li><%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %></li>
 		<% end %> 

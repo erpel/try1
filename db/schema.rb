@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100131154741) do
+ActiveRecord::Schema.define(:version => 20100203152138) do
 
   create_table "assets", :force => true do |t|
     t.string   "kunde"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20100131154741) do
     t.string   "level"
     t.string   "model"
     t.string   "location"
+    t.string   "owner"
   end
 
   create_table "users", :force => true do |t|
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20100131154741) do
     t.string   "persistence_token", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin"
   end
 
 end

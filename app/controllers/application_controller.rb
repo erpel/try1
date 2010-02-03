@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 	helper :all 				# include all helpers, all the time
 	protect_from_forgery 		# See ActionController::RequestForgeryProtection for details
 	filter_parameter_logging :password		# Scrub sensitive parameters from your log
+	before_filter { |c| Authorization.current_user = @current_user }
+	
 
 ##from authlogic example http://github.com/binarylogic/authlogic_example/blob/master/README.rdoc#readme
 	helper_method :current_user_session, :current_user
