@@ -1,0 +1,19 @@
+<% title "Role" %>
+
+<p>
+  <strong>Name:</strong>
+	<%=h @role.name %>
+	<ul>
+	<% for user in User.all %> 
+		<% if @role.users.include?(user) %> 
+			<li> <%=h user.login  %> </li>
+		<% end %> 
+	<% end %> </ul> 
+  
+</p>
+
+<p>
+  <%= link_to "Edit", edit_role_path(@role) %> |
+  <%= link_to "Destroy", @role, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", roles_path %>
+</p>

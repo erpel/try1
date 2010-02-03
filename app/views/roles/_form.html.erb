@@ -1,0 +1,17 @@
+<% form_for @role do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  
+	<% for user in User.all %>
+		<div>
+		<%= check_box_tag "role[user_ids][]", user.id, @role.users.include?(user) %> 
+		<%= user.login %>
+		</div>
+	<% end %>
+  
+  
+  <p><%= f.submit "Submit" %></p>
+<% end %>

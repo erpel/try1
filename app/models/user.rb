@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100203152138
+# Schema version: 20100203201933
 #
 # Table name: users
 #
@@ -11,12 +11,20 @@
 #  created_at        :datetime
 #  updated_at        :datetime
 #  admin             :boolean
+#  accredited        :boolean
 #
 
 class User < ActiveRecord::Base
 	acts_as_authentic
+	has_many :assignments
+	has_many :roles, :through => :assignments
 	
 	def role_symbols
-		[:admin] if admin?
+		#roles = [:admin, :accredited] if admin?
+		#roles = [:accredited] if accredited?
+		#return roles
+		roles.map do |role|
+			role.name.underscore.to_sym
+		end
 	end
 end

@@ -1,7 +1,16 @@
+﻿<h1>Account</h1>
 <p>
   <b>Login:</b>
   <%=h @user.login %>
 </p>
-
-
-<%= link_to 'Edit', edit_account_path %>
+<p>
+	<b><%=pluralize(@user.roles.length, "Rolle", "Rollen")%>:</b>
+	<% counter=0 %>
+	<% @user.roles.each do |i| %>
+		<% trenner=""  %> 
+		<% trenner="," unless  counter == @user.roles.length - 1  %> 
+		<%=h i.name+trenner %> 
+		<%counter += 1 %> 
+	<% end %> 
+</p> 
+<%= link_to 'Passwort ändern', edit_account_path %>

@@ -1,0 +1,19 @@
+# == Schema Information
+# Schema version: 20100203201933
+#
+# Table name: assignments
+#
+#  id         :integer         not null, primary key
+#  user_id    :integer
+#  role_id    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+# one:
+#   column: value
+#
+# two:
+#   column: value

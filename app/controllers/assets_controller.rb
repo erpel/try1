@@ -1,4 +1,7 @@
 class AssetsController < ApplicationController
+
+	filter_resource_access
+
   def index_all
     @assets = Asset.all
     respond_to do |format|

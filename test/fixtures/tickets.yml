@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100203152138
+# Schema version: 20100203201933
 #
 # Table name: tickets
 #

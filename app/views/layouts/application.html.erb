@@ -22,8 +22,9 @@
 			<li><%= link_to "My Account", account_path %></li>
 			<li><%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %></li>
 		<% end %> 
-		<li><%= link_to assets_path, assets_path%></li>
-		<li><%= link_to tickets_path, tickets_path %> </li>
+		<%= "<li>"+link_to(assets_path, assets_path)+"</li>" if permitted_to? :index, :assets%>
+		<%= "<li>"+link_to(tickets_path, tickets_path)+"</li>" if permitted_to? :index, :tickets%>
+		<%= "<li>"+link_to(roles_path, roles_path)+"</li>" if permitted_to? :index, :roles%>
 		</ul></div> 
       
       <%- if show_title? -%>

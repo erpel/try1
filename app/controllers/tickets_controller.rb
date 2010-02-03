@@ -17,9 +17,11 @@ class TicketsController < ApplicationController
   
   def create
     @ticket = Ticket.new(params[:ticket])
-    @ticket.location = Asset.find(:first, :conditions => [ 'serial LIKE ?', @ticket.serial ]).standortOrt
-    @ticket.model = Asset.find(:first, :conditions => [ 'serial LIKE ?', @ticket.serial ]).modell
-    @ticket.level = Asset.find(:first, :conditions => [ 'serial LIKE ?', @ticket.serial ]).mla
+    if Asset.find(:first, :conditions => [ 'serial LIKE ?', @ticket.serial ])
+		@ticket.location = Asset.find(:first, :conditions => [ 'serial LIKE ?', @ticket.serial ]).standortOrt
+		@ticket.model = Asset.find(:first, :conditions => [ 'serial LIKE ?', @ticket.serial ]).modell
+		@ticket.level = Asset.find(:first, :conditions => [ 'serial LIKE ?', @ticket.serial ]).mla
+    end
     @ticket.owner = current_user.login
     if @ticket.save
       flash[:notice] = "Successfully created ticket."
