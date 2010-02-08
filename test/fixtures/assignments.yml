@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100208153152
+# Schema version: 20100208192539
 #
 # Table name: assignments
 #

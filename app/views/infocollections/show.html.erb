@@ -1,0 +1,22 @@
+<% title "Infocollection" %>
+
+<p>
+  <strong>Servertyp:</strong>
+  <%=h @infocollection.servertyp %>
+</p>
+<p>
+  <strong>Infobits:</strong>
+  <%=h @infocollection.infobits.size %>
+</p>
+<div>
+<h1>Infos</h1>
+<% @infocollection.infobits.each do |bit| %>
+	<%= auto_link(bit.content) if bit.kind == "link" %> 
+<% end %> 
+</div> 
+
+<p>
+  <%= link_to "Edit", edit_infocollection_path(@infocollection) %> |
+  <%= link_to "Destroy", @infocollection, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", infocollections_path %>
+</p>

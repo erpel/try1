@@ -1,0 +1,12 @@
+<% form_for @infocollection do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :servertyp %><br />
+    <%= f.text_field :servertyp %>
+  </p>
+ <p><%= f.submit "Submit" %></p>
+<% end %>

@@ -1,15 +1,17 @@
 # == Schema Information
 # Schema version: 20100208192539
 #
-# Table name: roles
+# Table name: infocollections
 #
 #  id         :integer         not null, primary key
-#  name       :string(255)
+#  servertyp  :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  name       :string(255)
 #
 
-class Role < ActiveRecord::Base
-	has_many :assignments
-	has_many :users, :through => :assignments
-end
+one:
+  servertyp: MyString
+
+two:
+  servertyp: MyString

@@ -1,16 +1,10 @@
-<% form_for @infobit do |f| %>
+<% semantic_form_for @infobit do |f| %>
   <%= f.error_messages %>
-  <p>
-    <%= f.label :kind %><br />
-    <%= f.text_field :kind %>
-  </p>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </p>
-  <p><%= f.submit "Submit" %></p>
+  <% f.inputs do %>
+  	<%= f.input :name %>
+  	<%= f.input :kind %>
+  	<%= f.input :content %>
+  	<%= f.input :infocollection, :include_blank => false, :as => :radio %> 
+  <% end %>
+  <%= f.buttons %> 
 <% end %>

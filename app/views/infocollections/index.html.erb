@@ -1,0 +1,17 @@
+<% title "Infocollections" %>
+
+<table>
+  <tr>
+    <th>Servertyp</th>
+  </tr>
+  <% for infocollection in @infocollections %>
+    <tr>
+      <td><%=h infocollection.servertyp %></td>
+      <td><%= link_to "Show", infocollection %></td>
+      <td><%= link_to "Edit", edit_infocollection_path(infocollection) %></td>
+      <td><%= link_to "Destroy", infocollection, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Infocollection", new_infocollection_path %></p>

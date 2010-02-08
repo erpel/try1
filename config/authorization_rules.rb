@@ -1,7 +1,7 @@
 authorization do 
 	role :superuser do
 		has_permission_on [:import_assets], :to => [:index, :csv_import]
-		has_permission_on [:tickets,:assets, :roles], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
+		has_permission_on [:tickets,:assets, :roles, :infobits, :infocollections], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
 	end
 	role :admin do
 		has_permission_on [:import_assets], :to => [:index, :csv_import]

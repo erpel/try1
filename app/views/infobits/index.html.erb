@@ -4,12 +4,14 @@
   <tr>
     <th>Kind</th>
     <th>Name</th>
+    <th>Infocollection</th> 
     <th>Content</th>
   </tr>
   <% for infobit in @infobits %>
     <tr>
       <td><%=h infobit.kind %></td>
       <td><%=h infobit.name %></td>
+      <td><%=h infobit.infocollection.name %> </td> 
       <td><%=h infobit.content %></td>
       <td><%= link_to "Show", infobit %></td>
       <td><%= link_to "Edit", edit_infobit_path(infobit) %></td>

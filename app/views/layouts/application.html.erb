@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <title><%= h(yield(:title) || "Untitled") %></title>
-    <%= stylesheet_link_tag 'application' %>
-    <%= stylesheet_link_tag 'erpel' %>
+<%= stylesheet_link_tag 'application', 'formtastic', 'formtastic_changes', :cache => "base" %>
+<%= stylesheet_link_tag 'erpel' %>
     <%= yield(:head) %>
   </head>
   <body>
@@ -25,6 +25,8 @@
 		<%= "<li>"+link_to(assets_path, assets_path)+"</li>" if permitted_to? :index, :assets%>
 		<%= "<li>"+link_to(tickets_path, tickets_path)+"</li>" if permitted_to? :index, :tickets%>
 		<%= "<li>"+link_to(roles_path, roles_path)+"</li>" if permitted_to? :index, :roles%>
+		<%= "<li>"+link_to(infocollections_path, infocollections_path)+"</li>" if permitted_to? :index, :infocollections%>
+		<%= "<li>"+link_to(infobits_path, infobits_path)+"</li>" if permitted_to? :index, :infobits%>
 		</ul></div> 
       
       <%- if show_title? -%>
