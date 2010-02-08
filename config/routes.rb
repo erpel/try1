@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :infobits
+
   map.resources :roles
 
 	map.resources		:tickets

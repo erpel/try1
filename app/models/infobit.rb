@@ -1,18 +1,16 @@
 # == Schema Information
 # Schema version: 20100208153152
 #
-# Table name: roles
+# Table name: infobits
 #
 #  id         :integer         not null, primary key
+#  kind       :string(255)
 #  name       :string(255)
+#  content    :text
 #  created_at :datetime
 #  updated_at :datetime
 #
 
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  name: MyString
-
-two:
-  name: MyString
+class Infobit < ActiveRecord::Base
+  attr_accessible :kind, :name, :content
+end

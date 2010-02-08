@@ -1,0 +1,21 @@
+<% title "Infobits" %>
+
+<table>
+  <tr>
+    <th>Kind</th>
+    <th>Name</th>
+    <th>Content</th>
+  </tr>
+  <% for infobit in @infobits %>
+    <tr>
+      <td><%=h infobit.kind %></td>
+      <td><%=h infobit.name %></td>
+      <td><%=h infobit.content %></td>
+      <td><%= link_to "Show", infobit %></td>
+      <td><%= link_to "Edit", edit_infobit_path(infobit) %></td>
+      <td><%= link_to "Destroy", infobit, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Infobit", new_infobit_path %></p>
