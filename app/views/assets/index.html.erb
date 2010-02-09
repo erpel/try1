@@ -46,7 +46,7 @@
     </tr>
   <% end %>
 </table>
-<%= will_paginate %> 
+<%= will_paginate unless params[:page] == "all"%> 
 
 <p><%= link_to "New Asset", new_asset_path %></p>
 <p><%= link_to "All Assets", all_assets_path %> </p>
