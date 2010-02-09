@@ -1,4 +1,5 @@
 class InfocollectionsController < ApplicationController
+	filter_resource_access
   def index
     @infocollections = Infocollection.all
   end

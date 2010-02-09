@@ -1,4 +1,5 @@
 class InfobitsController < ApplicationController
+	filter_resource_access
   def index
     @infobits = Infobit.all
   end
