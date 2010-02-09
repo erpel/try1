@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100208192539
+# Schema version: 20100209074519
 #
 # Table name: infocollections
 #
@@ -13,4 +13,5 @@
 class Infocollection < ActiveRecord::Base
   attr_accessible :servertyp, :name
   has_many :infobits, :dependent => :delete_all
+  has_many :infocollections
 end

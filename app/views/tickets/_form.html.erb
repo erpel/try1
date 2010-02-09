@@ -28,6 +28,10 @@
   <p>
     <%= f.label :langtext %><br />
     <%= f.text_area :langtext %>
-  </p>
+  </p> 
   <p><%= f.submit "Submit" %></p>
 <% end %>
+<div style="background-color:green;"> <% semantic_form_for @ticket do |f| %>
+	<%= f.inputs %>
+	<%= f.buttons %> 
+<% end %> </div>
