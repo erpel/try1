@@ -2,13 +2,6 @@ class AssetsController < ApplicationController
 
 	filter_resource_access
 
-  def index_all
-    @assets = Asset.all
-    respond_to do |format|
-    	format.html #index.html.erb
-    	format.csv { render :csv => @assets }
-    end
-  end
 	def index
 		#@assets = Asset.paginate :per_page => 10, :page => params[:page]
 		if params[:page] == "all"

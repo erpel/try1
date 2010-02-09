@@ -49,6 +49,6 @@
 <%= will_paginate unless params[:page] == "all"%> 
 
 <p><%= link_to "New Asset", new_asset_path %></p>
-<p><%= link_to "All Assets", all_assets_path %> </p>
+<p><%= link_to "All Assets", :controller => 'assets', :page => "all" %> </p>
 <p><%= link_to "Export to CSV", assets_path.to_s+".csv" %> </p> 
 <p><%= link_to "Import CSV", :controller => 'import_assets' %> </p> 
