@@ -22,6 +22,7 @@
 class Ticket < ActiveRecord::Base
 
 	belongs_to :infocollection
+	has_many :infobits, :through => :infocollections
 	
 #implementierung von short_langtext nach 
 #http://de.wikibooks.org/wiki/Ruby_on_Rails:_Erste_Schritte#Erkl.C3.A4rung_k.C3.BCrzen
