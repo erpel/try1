@@ -28,13 +28,15 @@
   <strong>Langtext:</strong>
   <%=h @ticket.langtext %>
 </p>
-<h1>Infos</h1>
+
+<% if @ticket.info_collection %> <h1>Infos</h1>
 <p>
-	<%= @ticket.infocollection.name %> 
-	<%= @ticket.infocollection.infobits.size %> 
-	<% @ticket.infocollection.infobits.each do |bit| %>
-		<%= auto_link(bit.content) if bit.kind == "link" %> 
+	<%= @ticket.info_collection.name %> 
+	<%= @ticket.info_collection.infobits.size %> 
+	<% @ticket.info_collection.infobits.each do |bit| %>
+		<li><%=h bit.name %> <%= auto_link(bit.content) if bit.kind == "link" %> </li>
 	<% end %> 
+<% end %> 
 
 </p>
 
