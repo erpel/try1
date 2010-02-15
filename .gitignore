@@ -8,3 +8,7 @@ db/*.sqlite3
 *~
 .DS_Store
 Backup*.pages
+db.pages
+config/deploy.rb
+Capfile
+config/database.yml
