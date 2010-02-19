@@ -6,7 +6,7 @@
 	http://localhost:3000/stylesheets/erpel.css?1264871093
 */
 
-div#navigation li {
+div#navheader li {
 display: inline;
 padding: 0px 1em
 }
