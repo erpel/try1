@@ -3,9 +3,13 @@ class TicketsController < ApplicationController
 	filter_resource_access
 
 
-  def index
-    @tickets = Ticket.all
-  end
+	def index
+		if params[:page] == "all"
+			@tickets = Ticket.all
+		else
+			@tickets = Ticket.search_common(params[:search_common], params[:page])
+		end
+	end
   
   def show
     @ticket = Ticket.find(params[:id])

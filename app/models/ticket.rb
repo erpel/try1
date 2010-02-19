@@ -24,6 +24,12 @@ class Ticket < ActiveRecord::Base
 	belongs_to :infocollection
 	has_many :infobits, :through => :infocollections
 	
+	def self.search_common(search, page)
+		paginate :per_page =>10, :page => page,
+		 :conditions => ["ticketnummer LIKE :search OR serial LIKE :search OR sunid LIKE :search OR langtext LIKE :search",
+		  { :search => "%#{search}%" }]
+	end
+
 	def info_collection
 		@info_collection ||= Infocollection.matching_name(model).first
 	end

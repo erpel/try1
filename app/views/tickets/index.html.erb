@@ -1,4 +1,5 @@
 <% title "Tickets" %>
+<%= render :partial => "searchform" %>
 
 <table id="tickettabelle" >
   <tr>
@@ -29,5 +30,7 @@
     </tr>
   <% end %>
 </table>
+<%= will_paginate unless params[:page] == "all"%> 
+
 
 <p><%= link_to "New Ticket", new_ticket_path %></p>
