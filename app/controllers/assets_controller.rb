@@ -7,7 +7,7 @@ class AssetsController < ApplicationController
 		if params[:page] == "all"
 			@assets = Asset.all
 		else
-			@assets = Asset.search(params[:search], params[:page])
+			@assets = Asset.search_serial(params[:search_serial], params[:page])
 		end
 		respond_to do |format|
 			format.html #index.html.erb
