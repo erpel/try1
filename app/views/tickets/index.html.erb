@@ -14,7 +14,7 @@
     <th id="tickettabelle_langtext" >Details</th>
   </tr>
   <% for ticket in @tickets %>
-    <tr onclick="window.location='<%= ticket_path(ticket) %>'" onMouseOver="style.cursor='pointer'" class="<%= cycle 'zfarb0', 'zfarb1' %>">
+    <tr onclick="window.location='<%= ticket_path(ticket) %>'" onMouseOver="style.cursor='pointer';style.backgroundColor='#F5DE90'" onmouseout="style.backgroundColor=''" class="<%= cycle 'zfarb0', 'zfarb1' %>">
       <td><%=h ticket.datum %></td>
       <td><%=h ticket.ticketnummer %></td>
       <td class="prio<%= ' prio1' if ticket.prio==1 %>" ><%=h ticket.prio %></td>
@@ -25,7 +25,7 @@
       <td><%=h ticket.location %></td>
       <td><%=h ticket.short_langtext %></td>
       <td><%= link_to "Edit", edit_ticket_path(ticket), :onclick => 'event.stopPropagation()' %></td>
-      <td><%= link_to "Destroy", ticket, :confirm => 'Are you sure?', :method => :delete, :onclick => 'event.stopPropagation()'%></td>
+      <td><%= link_to "Delete", ticket, :confirm => 'Are you sure?', :method => :delete, :onclick => 'event.stopPropagation()'%></td>
     </tr>
   <% end %>
 </table>

@@ -1,9 +1,33 @@
 /* @override http://localhost:3000/stylesheets/erpel.css */
 
+/* Farben by http://colorschemedesigner.com/
+
+
+blau
+4B7399 Hintergrund		475D73 Links		183F63		7EA6CC		93B0CC
+Secondary Color A:
+gelb
+ECCD6A		B1A068		997D22		F5DE90		F5E4AB
+Secondary Color B:
+rot
+EC946A		B17F68		994922	Prio1	F5B190		F5C3AB
+
+
+ */
+ 
+ a {
+  color: #475D73;
+}
+
 /* navheader */
 #navheader {
 	white-space: nowrap;
 }
+
+tr{
+	background-color: ;
+}
+
 
 #sessionbar {
 	border: 1px dashed silver;
@@ -50,11 +74,11 @@ tr.zfarb0 {
 	background-color:white;
 }
 tr.zfarb1 {
-	background-color: silver;
+	background-color: #7EA6CC;
 }
 
 td.prio1{
-	background-color: red;
+	background-color: #994922;
 	font-weight:bold;
 }
 td.prio{
