@@ -22,7 +22,7 @@ Rails::Initializer.run do |config|
 
 config.gem "authlogic"
 config.gem "declarative_authorization", :source => "http://gemcutter.org"
-config.gem "fastercsv"
+config.gem "fastercsv" #comment out for ruby1.9
 config.gem "comma"
 config.gem "will_paginate"
 config.gem 'formtastic'
