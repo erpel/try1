@@ -1,7 +1,7 @@
 <% title "Assets" %>
 <%= render :partial => "searchform" %>
 
-<table id="AssetIndex">
+<table>
   <tr>
     <th>Kunde</th>
     <th>Serial</th>
@@ -19,7 +19,7 @@
     <th>Restneu</th>
   </tr>
   <% for asset in @assets %>
-    <tr>
+    <tr class="<%= cycle 'zfarb0', 'zfarb1' %>">
       <td><%=h asset.kunde %></td>
       <td><%=h asset.serial %></td>
       <td><%=h asset.mla %></td>

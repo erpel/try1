@@ -25,7 +25,7 @@ class Ticket < ActiveRecord::Base
 	has_many :infobits, :through => :infocollections
 	
 	def self.search_common(search, page)
-		paginate :per_page =>10, :page => page,
+		paginate :per_page =>10, :page => page, :order => "created_at DESC",
 		 :conditions => ["ticketnummer LIKE :search OR serial LIKE :search OR sunid LIKE :search OR langtext LIKE :search",
 		  { :search => "%#{search}%" }]
 	end

@@ -1,18 +1,19 @@
 <div id="navheader" >
-	<ul>
+	<ul id="sessionbar" class="">
 		<% if !current_user %>
-			<li> Nicht eingeloggt.</li>  
+			<li id="sessionstatus"> Not logged in.</li>  
 			<li><%= link_to "Register", new_account_path %></li> 
 			<li><%= link_to "Log In", new_user_session_path %></li>
 		<% else %>
-			<li>Eingeloggt als: <%= current_user.login %> </li> 
+			<li id="sessionstatus">Logged in as: <%= current_user.login %> </li> 
 			<li><%= link_to "My Account", account_path %></li>
 			<li><%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %></li>
 		<% end %> 
-		<%= "<li>"+link_to(assets_path, assets_path)+"</li>" if permitted_to? :index, :assets%>
-		<%= "<li>"+link_to(tickets_path, tickets_path)+"</li>" if permitted_to? :index, :tickets%>
-		<%= "<li>"+link_to(roles_path, roles_path)+"</li>" if permitted_to? :index, :roles%>
-		<%= "<li>"+link_to(infocollections_path, infocollections_path)+"</li>" if permitted_to? :index, :infocollections%>
-		<%= "<li>"+link_to(infobits_path, infobits_path)+"</li>" if permitted_to? :index, :infobits%>
-	</ul>
-</div>
+	</ul> 
+	<ul id="navlinks">
+		<%= "<li>"+link_to('Tickets', tickets_path)+"</li>" if permitted_to? :index, :tickets%>
+		<%= "<li>"+link_to('Assets', assets_path)+"</li>" if permitted_to? :index, :assets%>
+		<%= "<li>"+link_to(nil, roles_path)+"</li>" if permitted_to? :index, :roles%>
+		<%= "<li>"+link_to(nil, infocollections_path)+"</li>" if permitted_to? :index, :infocollections%>
+		<%= "<li>"+link_to(nil, infobits_path)+"</li>" if permitted_to? :index, :infobits%>
+	</ul></div>

@@ -1,22 +1,67 @@
-/* @override 
-	http://localhost:3000/stylesheets/erpel.css?1264446229
-	http://localhost:3000/stylesheets/erpel.css?1264446959
-	http://localhost:3000/stylesheets/erpel.css?1264770688
-	http://localhost:3000/stylesheets/erpel.css?1264865756
-	http://localhost:3000/stylesheets/erpel.css?1264871093
-*/
+/* @override http://localhost:3000/stylesheets/erpel.css */
 
-div#navheader li {
-display: inline;
-padding: 0px 1em
+/* navheader */
+#navheader {
+	white-space: nowrap;
 }
 
+#sessionbar {
+	border: 1px dashed silver;
+	float: right;
+	padding: 0px;
+}
+
+#sessionbar li {
+	display: inline;
+	padding: 0px 0.5em;
+}
+
+li#sessionstatus {
+	display: block;
+}
+
+
+#navlinks{
+	float: left;
+	padding: 0px;
+	font-size: 120%;
+	font-weight: bold;
+}
+
+#navlinks li {
+	display: inline;
+	padding: 0px 1em;
+
+}
+
+/* maincontent */
+
+#maincontent{
+	min-width: 80%;
+	clear: both;
+	border-top: 5px #4B7399 dashed;
+
+}
+
+
+/* Table coloration */
+
 tr.zfarb0 {
-	background-color:white;	
+	background-color:white;
 }
 tr.zfarb1 {
 	background-color: silver;
 }
+
+td.prio1{
+	background-color: red;
+	font-weight:bold;
+}
+td.prio{
+	text-align: center;
+}
+
+
 #AssetIndex {
 	border: 2px solid black;
 }
@@ -25,6 +70,20 @@ tr.zfarb1 {
 		border: 1px solid grey;
 
 }
+
+/* Allegemeine Tabellenoptionen */
+
+td {
+	font-size: 85%;
+	height: auto;
+	height:100%;
+	}
+	
+table {
+	height:100%;
+}
+
+/* Spaltenbreiten */
 
 #tickettabelle_langtext {
 	min-width: 15em;

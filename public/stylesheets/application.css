@@ -1,8 +1,4 @@
-/* @override 
-	http://localhost:3000/stylesheets/application.css?1264859325
-	http://localhost:3000/stylesheets/application.css?1264869628
-	http://localhost:3000/stylesheets/application.css?1264871092
-*/
+/* @override http://localhost:3000/stylesheets/application.css */
 
 body {
   background-color: #4B7399;
@@ -27,10 +23,10 @@ a {
 #container {
 
 	background-color: #FFF;
-	padding: 20px 40px 20px 20px;
 	border: solid 1px black;
 	margin: 20px;
 	display: inline-block;
+	padding: 0 40px 20px 20px;
 }
 
 #flash_notice, #flash_error {

@@ -14,7 +14,7 @@
 			<%= content_tag :div, msg, :id => "flash_#{name}" %>
 		<%- end -%>
 		<%- if show_title? -%>
-			<a href="<%= params[:controller] %>"><h1><%=h yield(:title) %></h1></a>
+			<h1><%=h yield(:title) %></h1>
 		<%- end -%>
       
 

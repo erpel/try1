@@ -6,27 +6,26 @@
     <th id="tickettabelle_datum">Datum</th>
     <th id="tickettabelle_ticketnummer" >Ticketnummer</th>
     <th id="tickettabelle_prio" >Prio</th>
-    <th id="tickettabelle_sunid" >Sunid</th>
+    <th id="tickettabelle_sunid" >Sun SR#</th>
     <th id="tickettabelle_serial" >Serial</th>
     <th id="tickettabelle_wartungslevel" >Wartungslevel</th>
     <th id="tickettabelle_modell" >Modell</th>
     <th id="tickettabelle_standort" >Standort</th>
-    <th id="tickettabelle_langtext" >Langtext</th>
+    <th id="tickettabelle_langtext" >Details</th>
   </tr>
   <% for ticket in @tickets %>
-    <tr class="<%= cycle 'zfarb0', 'zfarb1' %>">
+    <tr onclick="window.location='<%= ticket_path(ticket) %>'" onMouseOver="style.cursor='pointer'" class="<%= cycle 'zfarb0', 'zfarb1' %>">
       <td><%=h ticket.datum %></td>
       <td><%=h ticket.ticketnummer %></td>
-      <td <%= 'style="background-color:red"' if ticket.prio==1 %> ><%=h ticket.prio %></td>
+      <td class="prio<%= ' prio1' if ticket.prio==1 %>" ><%=h ticket.prio %></td>
       <td><%=h ticket.sunID %></td>
       <td><%=h ticket.serial %></td>
       <td><%=h ticket.level %></td>
       <td><%=h ticket.model %></td>
       <td><%=h ticket.location %></td>
       <td><%=h ticket.short_langtext %></td>
-      <td><%= link_to "Show", ticket %></td>
-      <td><%= link_to "Edit", edit_ticket_path(ticket) %></td>
-      <td><%= link_to "Destroy", ticket, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Edit", edit_ticket_path(ticket), :onclick => 'event.stopPropagation()' %></td>
+      <td><%= link_to "Destroy", ticket, :confirm => 'Are you sure?', :method => :delete, :onclick => 'event.stopPropagation()'%></td>
     </tr>
   <% end %>
 </table>

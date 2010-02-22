@@ -1,4 +1,4 @@
-<% title "Ticket" %>
+<% title "Ticket #{@ticket.ticketnummer}" %>
 
 <p>
   <strong>Datum:</strong>
@@ -26,20 +26,10 @@
 </p>
 <p>
   <strong>Langtext:</strong>
-  <%=h @ticket.langtext %>
+  <%=simple_format(h(@ticket.langtext)) %>
 </p>
 
-<% if @ticket.info_collection %> <h1>Infos</h1>
-<p>
-	<%= @ticket.info_collection.name %> 
-	<%= @ticket.info_collection.infobits.size %> 
-	<% @ticket.info_collection.infobits.each do |bit| %>
-		<li><%=h bit.name %> <%= auto_link(bit.content) if bit.kind == "link" %> </li>
-	<% end %> 
-<% end %> 
-
-</p>
-
+<%= render :partial => "infos" if @ticket.info_collection %> 
 
 <p>
   <%= link_to "Edit", edit_ticket_path(@ticket) %> |
