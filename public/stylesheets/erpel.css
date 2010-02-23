@@ -5,11 +5,11 @@
 
 blau
 4B7399 Hintergrund		475D73 Links		183F63		7EA6CC		93B0CC
-Secondary Color A:
-gelb
+
+Secondary Color A:gelb
 ECCD6A		B1A068		997D22		F5DE90		F5E4AB
-Secondary Color B:
-rot
+
+Secondary Color B:rot
 EC946A		B17F68		994922	Prio1	F5B190		F5C3AB
 
 
@@ -22,10 +22,6 @@ EC946A		B17F68		994922	Prio1	F5B190		F5C3AB
 /* navheader */
 #navheader {
 	white-space: nowrap;
-}
-
-tr{
-	background-color: ;
 }
 
 
@@ -74,7 +70,7 @@ tr.zfarb0 {
 	background-color:white;
 }
 tr.zfarb1 {
-	background-color: #7EA6CC;
+	background-color: #93B0CC;
 }
 
 td.prio1{
@@ -101,6 +97,7 @@ td {
 	font-size: 85%;
 	height: auto;
 	height:100%;
+	max-height: 2em;
 	}
 	
 table {

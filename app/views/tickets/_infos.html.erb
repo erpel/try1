@@ -2,7 +2,7 @@
 	<p>
 		<%= @ticket.info_collection.name %> Infos: <%= @ticket.info_collection.infobits.size %> 
 		<ul id="" class=""><% @ticket.info_collection.infobits.each do |bit| %>
-			<li><%=h bit.name %> <%= auto_link(bit.content) if bit.kind == "link" %> </li>
+			<li><%=h bit.name %> <%= auto_link_urls(bit.content) if bit.kind == "link" %> </li>
 		<% end %> </ul> 
 	</p>
 </div>

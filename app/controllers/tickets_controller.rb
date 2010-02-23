@@ -4,11 +4,22 @@ class TicketsController < ApplicationController
 
 
 	def index
-		if params[:page] == "all"
-			@tickets = Ticket.all
-		else
-			@tickets = Ticket.search_common(params[:search_common], params[:page])
+		if params[:page] != "all" && params[:search_common].nil?
+			flash[:notice]="searchlogic"
+			@search = Ticket.search(params[:search])
+			@tickets = @search.all.paginate(:per_page => 10, :page => params[:page])
 		end
+		if params[:page] == "all"
+			flash[:notice]="if page=all"
+			@tickets = Ticket.all
+		else 
+			#flash[:notice] = "searchcommon"
+			#@tickets = Ticket.search_common(params[:search_common], params[:page])
+			#if @tickets.empty?
+			#	flash.now[:error] = "No matches"
+			#end
+		end
+		flash[:error] = "empty" if params[:search_common].nil?
 	end
   
   def show

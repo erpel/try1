@@ -1,6 +1,21 @@
 <% title "Tickets" %>
 <%= render :partial => "searchform" %>
 
+<% if params[:page] != "all" && params[:search_common].nil?%> 
+<% form_for @search do |f| %>   
+  <ol class="formList">   
+    <li>   
+      <%= f.label :ticketnummer_like, "Ticketnummer" %>   
+      <%= f.text_field :ticketnummer_like %>   
+    </li>    
+    <li>   
+      <%= f.submit "Search" %>   
+    </li>   
+  </ol>   
+<% end %>
+<% end %> 
+
+
 <table id="tickettabelle" >
   <tr>
     <th id="tickettabelle_datum">Datum</th>
@@ -12,9 +27,8 @@
     <th id="tickettabelle_modell" >Modell</th>
     <th id="tickettabelle_standort" >Standort</th>
     <th id="tickettabelle_langtext" >Details</th>
-  </tr>
-  <% for ticket in @tickets %>
-    <tr onclick="window.location='<%= ticket_path(ticket) %>'" onMouseOver="style.cursor='pointer';style.backgroundColor='#F5DE90'" onmouseout="style.backgroundColor=''" class="<%= cycle 'zfarb0', 'zfarb1' %>">
+  </tr><% for ticket in @tickets %>
+    <tr onclick="window.location='<%= ticket_path(ticket) %>'" onmouseover="style.cursor='pointer';style.backgroundColor='#F5DE90'" onmouseout="style.backgroundColor=''" class="<%= cycle 'zfarb0', 'zfarb1' %>">
       <td><%=h ticket.datum %></td>
       <td><%=h ticket.ticketnummer %></td>
       <td class="prio<%= ' prio1' if ticket.prio==1 %>" ><%=h ticket.prio %></td>
@@ -33,3 +47,4 @@
 
 
 <p><%= link_to "New Ticket", new_ticket_path %></p>
+<p><%= link_to "All Tickets", :controller => 'tickets', :page => "all" %></p> 
