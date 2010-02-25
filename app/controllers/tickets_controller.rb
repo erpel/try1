@@ -13,6 +13,7 @@ class TicketsController < ApplicationController
 		else
 			@tickets = @sf.all.paginate(:per_page => 10, :page => params[:page])
 		end
+		flash.now[:error] = "Nothing found."if @tickets.empty?
 	end
 	
 
