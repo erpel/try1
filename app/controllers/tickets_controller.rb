@@ -6,14 +6,11 @@ class TicketsController < ApplicationController
 	def index
 		@sf = Ticket.search(params[:search])
 		if params[:page] == "all"
-			flash.now[:notice]="if page=all"
 			@tickets = Ticket.all
 			render "index_all" and return
 		elsif !params[:search_common].nil? && !params[:search_common].empty?
-			flash.now[:notice]="search_common"
 			@tickets = Ticket.search_common(params[:search_common], params[:page])
 		else
-			flash.now[:notice]="searchlogic"
 			@tickets = @sf.all.paginate(:per_page => 10, :page => params[:page])
 		end
 	end
