@@ -1,10 +1,10 @@
 <% form_for @sf do |f| %> 
  <table id="tickettabelle" >
-  <tr ><td id="dateFilterTrigger">Filter</td> </tr> 
-   <tr id="dateFilterSelects" style="display: none">
+  <tr <%= 'style="display:none;"' if params[:commit]=="Filter"%>><td id="dateFilterTrigger">Filter</td> </tr> 
+   <tr id="dateFilterSelects" <%= 'style="display:none;"' unless params[:commit]=="Filter"%>>
     <td id="tickettabelle_sf_datum">
     	<div>
-    		From <%= f.date_select :datum_after, :use_month_numbers => true %><br />
+    		From <%= f.date_select :datum_after, :use_month_numbers => true, :include_blank => true %><br />
     		to <%= f.date_select :datum_before, :use_month_numbers => true %> 
     	</div>
     </td>
