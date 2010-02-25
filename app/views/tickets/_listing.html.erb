@@ -1,18 +1,7 @@
 <% form_for @sf do |f| %> 
  <table id="tickettabelle" >
-  <tr>
-    <th id="tickettabelle_datum">Datum</th>
-    <th id="tickettabelle_ticketnummer" >Ticketnummer</th>
-    <th id="tickettabelle_prio" >Prio</th>
-    <th id="tickettabelle_sunid" >Sun SR#</th>
-    <th id="tickettabelle_serial" >Serial</th>
-    <th id="tickettabelle_wartungslevel" >Wartungslevel</th>
-    <th id="tickettabelle_modell" >Modell</th>
-    <th id="tickettabelle_standort" >Standort</th>
-    <th id="tickettabelle_langtext" >Details</th>
-    <td id="dateFilterTrigger">Filter</td>
-  </tr>
-  <tr id="dateFilterSelects" style="display: none">
+  <tr ><td id="dateFilterTrigger">Filter</td> </tr> 
+   <tr id="dateFilterSelects" style="display: none">
     <td id="tickettabelle_sf_datum">
     	<div>
     		From <%= f.date_select :datum_after, :use_month_numbers => true %><br />
@@ -25,10 +14,22 @@
     <td id="tickettabelle_sf_serial"><%= f.text_field :serial_like, :size => 10 %></td>
     <td id="tickettabelle_sf_wartungslevel"><%= f.text_field :level_like, :size => 20 %></td>
     <td id="tickettabelle_sf_modell"><%= f.text_field :model_like, :size => 20 %></td>
-    <td id="tickettabelle_sf_standort"><%= f.text_field :location_like, :size => 20 %></td>
-    <td id="tickettabelle_sf_langtext"><%= f.text_field :langtext_like, :size => 20 %></td>
+    <td id="tickettabelle_sf_standort"><%= f.text_field :location_like, :size => 50 %></td>
+    <td id="tickettabelle_sf_langtext"><%= f.text_field :langtext_like, :size => 25 %></td>
     <td id="tickettabelle_sf_submit"><%= f.submit "Filter" %></td> 
   </tr>
+  <tr>
+    <th id="tickettabelle_datum">Datum</th>
+    <th id="tickettabelle_ticketnummer" >Ticketnummer</th>
+    <th id="tickettabelle_prio" >Prio</th>
+    <th id="tickettabelle_sunid" >Sun SR#</th>
+    <th id="tickettabelle_serial" >Serial</th>
+    <th id="tickettabelle_wartungslevel" >Wartungslevel</th>
+    <th id="tickettabelle_modell" >Modell</th>
+    <th id="tickettabelle_standort" >Standort</th>
+    <th id="tickettabelle_langtext" >Details</th>
+  </tr>
+ 
   <% for ticket in @tickets %>
     <tr onclick="window.location='<%= ticket_path(ticket) %>'" onmouseover="style.cursor='pointer';style.backgroundColor='#F5DE90'" onmouseout="style.backgroundColor=''" class="<%= cycle 'zfarb0', 'zfarb1' %>">
       <td><%=h ticket.datum %></td>

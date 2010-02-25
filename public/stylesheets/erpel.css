@@ -116,7 +116,7 @@ th#tickettabelle_modell {
 }
 
 #tickettabelle_sf_datum {
-	min-width: 20em;
+	min-width: 18em;
 }
 
 #dateFilterTrigger{
@@ -125,6 +125,7 @@ th#tickettabelle_modell {
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
 	font-size: x-small;
-	vertical-align: super;
+	border: 1px solid black;
+	font-weight: normal;
 }
 
