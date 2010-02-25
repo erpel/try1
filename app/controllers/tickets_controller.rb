@@ -1,26 +1,24 @@
 class TicketsController < ApplicationController
 
-	filter_resource_access
+	filter_access_to :all
 
 
 	def index
-		if params[:page] != "all" && params[:search_common].nil?
-			flash[:notice]="searchlogic"
-			@search = Ticket.search(params[:search])
-			@tickets = @search.all.paginate(:per_page => 10, :page => params[:page])
-		end
+		@sf = Ticket.search(params[:search])
 		if params[:page] == "all"
-			flash[:notice]="if page=all"
+			flash.now[:notice]="if page=all"
 			@tickets = Ticket.all
-		else 
-			#flash[:notice] = "searchcommon"
-			#@tickets = Ticket.search_common(params[:search_common], params[:page])
-			#if @tickets.empty?
-			#	flash.now[:error] = "No matches"
-			#end
+			render "index_all" and return
+		elsif !params[:search_common].nil? && !params[:search_common].empty?
+			flash.now[:notice]="search_common"
+			@tickets = Ticket.search_common(params[:search_common], params[:page])
+		else
+			flash.now[:notice]="searchlogic"
+			@tickets = @sf.all.paginate(:per_page => 10, :page => params[:page])
 		end
-		flash[:error] = "empty" if params[:search_common].nil?
 	end
+	
+
   
   def show
     @ticket = Ticket.find(params[:id])

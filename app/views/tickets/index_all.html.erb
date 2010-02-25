@@ -1,0 +1,6 @@
+<% title "All Tickets" %>
+
+<%= render :partial => "listing" %> 
+
+<p><%= link_to "New Ticket", new_ticket_path %></p>
+<p><%= link_to "All Tickets", :controller => 'tickets', :page => "all" %></p> 

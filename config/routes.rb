@@ -1,13 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :infocollections
-
-  map.resources :infobits
-
-  map.resources :roles
-
-	map.resources		:tickets
-	map.resources		:assets
-	map.resources		:users
+	map.resources		:infocollections, :infobits, :roles, :tickets, :assets, :users
 	map.resource		:user_session
 	map.resource		:account, :controller => "users"
 	map.all_assets		'/all_assets/',	:controller => 'assets', :action => 'index_all' 

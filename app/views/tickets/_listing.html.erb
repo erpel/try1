@@ -1,0 +1,43 @@
+<% form_for @sf do |f| %> 
+ <table id="tickettabelle" >
+  <tr>
+    <th id="tickettabelle_datum">Datum</th>
+    <th id="tickettabelle_ticketnummer" >Ticketnummer</th>
+    <th id="tickettabelle_prio" >Prio</th>
+    <th id="tickettabelle_sunid" >Sun SR#</th>
+    <th id="tickettabelle_serial" >Serial</th>
+    <th id="tickettabelle_wartungslevel" >Wartungslevel</th>
+    <th id="tickettabelle_modell" >Modell</th>
+    <th id="tickettabelle_standort" >Standort</th>
+    <th id="tickettabelle_langtext" >Details</th>
+  </tr>
+  <tr>
+    <td id="tickettabelle_sf_datum"><div id="showme" style="display: none"> <%= f.date_select :datum_after %><%= f.date_select :datum_before %> </div> <div style="background-color:yellow;" id="clickme">ZEIG!</div> </td>
+    <td id="tickettabelle_sf_ticketnummer"><%= f.text_field :ticketnummer_like, :size => 15 %></td>
+    <td id="tickettabelle_sf_prio"><%= f.text_field :prio_like, :size => 3 %></td>
+    <td id="tickettabelle_sf_sunid"><%= f.text_field :sunID_like, :size=> 9 %></td>
+    <td id="tickettabelle_sf_serial"><%= f.text_field :serial_like, :size => 10 %></td>
+    <td id="tickettabelle_sf_wartungslevel"><%= f.text_field :level_like, :size => 20 %></td>
+    <td id="tickettabelle_sf_modell"><%= f.text_field :model_like, :size => 20 %></td>
+    <td id="tickettabelle_sf_standort"><%= f.text_field :location_like, :size => 20 %></td>
+    <td id="tickettabelle_sf_langtext"><%= f.text_field :langtext_like, :size => 20 %></td>
+    <td id="tickettabelle_sf_submit"><%= f.submit "Filter" %></td> 
+  </tr>
+  <% for ticket in @tickets %>
+    <tr onclick="window.location='<%= ticket_path(ticket) %>'" onmouseover="style.cursor='pointer';style.backgroundColor='#F5DE90'" onmouseout="style.backgroundColor=''" class="<%= cycle 'zfarb0', 'zfarb1' %>">
+      <td><%=h ticket.datum %></td>
+      <td><%=h ticket.ticketnummer %></td>
+      <td class="prio<%= ' prio1' if ticket.prio==1 %>" ><%=h ticket.prio %></td>
+      <td><%=h ticket.sunID %></td>
+      <td><%=h ticket.serial %></td>
+      <td><%=h ticket.level %></td>
+      <td><%=h ticket.model %></td>
+      <td><%=h ticket.location %></td>
+      <td><%=h ticket.short_langtext %></td>
+      <td><%= link_to "Edit", edit_ticket_path(ticket), :onclick => 'event.stopPropagation()' %></td>
+      <td><%= link_to "Delete", ticket, :confirm => 'Are you sure?', :method => :delete, :onclick => 'event.stopPropagation()'%></td>
+    </tr>
+  <% end %>
+</table>
+
+<% end %>
