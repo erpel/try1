@@ -1,12 +1,8 @@
 <% title "Tickets" %>
+
 <%= render :partial => "searchform" %>
-<p><b>inspect</b>  <%= @sf.inspect  %><b>size</b>  <%= @sf.size %> <b>class</b> <%= @sf.class %> </p>
-
- <%= render :partial => "listing" %>
- 
-
+<%= render :partial => "listing" %>
 <%= will_paginate %> Total <%= @tickets.total_entries %> 
-
 
 <p><%= link_to "New Ticket", new_ticket_path %></p>
 <p><%= link_to "All Tickets", :controller => 'tickets', :page => "all" %></p> 

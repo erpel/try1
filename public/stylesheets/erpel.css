@@ -104,7 +104,7 @@ table {
 	height:100%;
 }
 
-/* Spaltenbreiten */
+/* Tickettabelle */
 
 #tickettabelle_langtext {
 	min-width: 15em;
@@ -113,5 +113,18 @@ table {
 
 th#tickettabelle_modell {
 	min-width: 10em;
+}
+
+#tickettabelle_sf_datum {
+	min-width: 20em;
+}
+
+#dateFilterTrigger{
+	background-color: #F5DE90;
+	text-align: center;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	font-size: x-small;
+	vertical-align: super;
 }
 

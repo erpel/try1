@@ -25,9 +25,9 @@
   <%=h @ticket.sunID %>
 </p>
 <p>
-  <strong>Langtext:</strong>
+  <strong>Langtext:</strong></p>
   <%=simple_format(h(@ticket.langtext)) %>
-</p>
+
 
 <%= render :partial => "infos" if @ticket.info_collection %> 
 
