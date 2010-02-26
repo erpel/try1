@@ -1,7 +1,7 @@
 <% form_for @sf do |f| %> 
  <table id="tickettabelle" >
-  <tr <%= 'style="display:none;"' if params[:commit]=="Filter"%>><td id="dateFilterTrigger">Filter</td> </tr> 
-   <tr id="dateFilterSelects" <%= 'style="display:none;"' unless params[:commit]=="Filter"%>>
+  <tr <%= 'style="display:none;"' if params[:commit]=="Filter"%>><td id="FilterTrigger" class="PointerCursor">Filter</td> </tr> 
+   <tr class="FilterRows" <%= 'style="display:none;"' unless params[:commit]=="Filter"%>>
     <td id="tickettabelle_sf_datum">
     	<div>
     		From <%= f.date_select :datum_after, :use_month_numbers => true, :include_blank => true %><br />
@@ -15,9 +15,11 @@
     <td id="tickettabelle_sf_wartungslevel"><%= f.text_field :level_like, :size => 20 %></td>
     <td id="tickettabelle_sf_modell"><%= f.text_field :model_like, :size => 20 %></td>
     <td id="tickettabelle_sf_standort"><%= f.text_field :location_like, :size => 50 %></td>
-    <td id="tickettabelle_sf_langtext"><%= f.text_field :langtext_like, :size => 25 %></td>
-    <td id="tickettabelle_sf_submit"><%= f.submit "Filter" %></td> 
+    <td id="tickettabelle_sf_langtext"><%= f.text_field :langtext_like, :size => 25 %></td> 
   </tr>
+  <tr class="FilterRows" <%= 'style="display:none;"' unless params[:commit]=="Filter"%>>
+  	<td id="tickettabelle_sf_submit"><%= f.submit "Filter" %></td>
+  </tr> 
   <tr>
     <th id="tickettabelle_datum">Datum</th>
     <th id="tickettabelle_ticketnummer" >Ticketnummer</th>
@@ -31,7 +33,7 @@
   </tr>
  
   <% for ticket in @tickets %>
-    <tr onclick="window.location='<%= ticket_path(ticket) %>'" onmouseover="style.cursor='pointer';style.backgroundColor='#F5DE90'" onmouseout="style.backgroundColor=''" class="<%= cycle 'zfarb0', 'zfarb1' %>">
+    <tr  onclick="window.location='<%= ticket_path(ticket) %>'" class="toHighlight PointerCursor <%= cycle 'zfarb0', 'zfarb1' %>">
       <td><%=h ticket.datum %></td>
       <td><%=h ticket.ticketnummer %></td>
       <td class="prio<%= ' prio1' if ticket.prio==1 %>" ><%=h ticket.prio %></td>

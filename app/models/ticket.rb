@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100209074519
+# Schema version: 20100226152119
 #
 # Table name: tickets
 #
@@ -17,6 +17,7 @@
 #  location          :string(255)
 #  owner             :string(255)
 #  infocollection_id :integer
+#  vertragsnummer    :string(255)
 #
 
 class Ticket < ActiveRecord::Base
@@ -26,7 +27,7 @@ class Ticket < ActiveRecord::Base
 	
 	def self.search_common(search, page)
 		paginate :per_page =>10, :page => page, :order => "created_at DESC",
-		 :conditions => ["ticketnummer LIKE :search OR serial LIKE :search OR sunid LIKE :search OR langtext LIKE :search",
+		 :conditions => ["ticketnummer LIKE :search OR serial LIKE :search OR sunid LIKE :search OR langtext LIKE :search ESCAPE '!'",
 		  { :search => "%#{search}%" }]
 	end
 

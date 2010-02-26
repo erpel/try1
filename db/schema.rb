@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100209074519) do
+ActiveRecord::Schema.define(:version => 20100226152119) do
 
   create_table "assets", :force => true do |t|
     t.string   "kunde"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20100209074519) do
     t.string   "location"
     t.string   "owner"
     t.integer  "infocollection_id"
+    t.string   "vertragsnummer"
   end
 
   create_table "users", :force => true do |t|
