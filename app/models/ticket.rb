@@ -25,6 +25,8 @@ class Ticket < ActiveRecord::Base
 	belongs_to :infocollection
 	has_many :infobits, :through => :infocollections
 	
+	before_create :fill_from_asset
+	
 	def self.search_common(search, page)
 		paginate :per_page =>10, :page => page, :order => "created_at DESC",
 		 :conditions => ["ticketnummer LIKE :search OR serial LIKE :search OR sunid LIKE :search OR langtext LIKE :search ESCAPE '!'",
@@ -48,4 +50,15 @@ class Ticket < ActiveRecord::Base
 	def short_langtext
 		texthelper.truncate(self.langtext)
 	end
+	
+	
+	private
+	def fill_from_asset
+		asset = Asset.serial_equals(self.serial).first
+		self.vertragsnummer = asset.vertragsnummer
+		self.location = asset.standortOrt
+		self.model = asset.modell
+		self.level = asset.mla
+	end
+
 end
