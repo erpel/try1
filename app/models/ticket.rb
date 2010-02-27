@@ -28,7 +28,7 @@ class Ticket < ActiveRecord::Base
 	before_create :fill_from_asset
 	
 	def self.search_common(search, page)
-		paginate :per_page =>10, :page => page, :order => "created_at DESC",
+		paginate :per_page =>10, :page => page, :order => "datum DESC",
 		 :conditions => ["ticketnummer LIKE :search OR serial LIKE :search OR sunid LIKE :search OR langtext LIKE :search ESCAPE '!'",
 		  { :search => "%#{search}%" }]
 	end
