@@ -1,7 +1,7 @@
 <div id="infos"> <h1>Infos</h1>
 	<p>
-		<%= @ticket.info_collection.name %> Infos: <%= @ticket.info_collection.infobits.size %> 
-		<ul id="" class=""><% @ticket.info_collection.infobits.each do |bit| %>
+		<%= @ticket.server_info.name %> Infos: <%= @ticket.server_info.infobits.size %> 
+		<ul id="" class=""><% @ticket.server_info.infobits.each do |bit| %>
 			<li><%=h bit.name %> <%= auto_link_urls(bit.content) if bit.kind == "link" %> </li>
 		<% end %> </ul> 
 	</p>

@@ -1,0 +1,13 @@
+<% form_for @data_center_address do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :locationstring %><br />
+    <%= f.text_field :locationstring %>
+  </p>
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_area :address %>
+    Use TICKETNR as placeholder for the ticket number.
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

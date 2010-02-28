@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100226152119
+# Schema version: 20100228214716
 #
 # Table name: tickets
 #
@@ -33,8 +33,8 @@ class Ticket < ActiveRecord::Base
 		  { :search => "%#{search}%" }]
 	end
 
-	def info_collection
-		@info_collection ||= Infocollection.matching_name(model).first
+	def server_info
+		@server_info ||= Infocollection.matching_servertyp(model).first
 	end
 
 #implementierung von short_langtext nach 

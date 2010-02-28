@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :data_center_addresses
+
 	map.resources		:infocollections, :infobits, :roles, :tickets, :assets, :users
 	map.resource		:user_session
 	map.resource		:account, :controller => "users"

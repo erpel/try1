@@ -1,0 +1,19 @@
+<% title "Data Center Addresses" %>
+
+<table>
+  <tr>
+    <th>Locationstring</th>
+    <th>Address</th>
+  </tr>
+  <% for data_center_address in @data_center_addresses %>
+    <tr>
+      <td><%=h data_center_address.locationstring %></td>
+      <td><%=h data_center_address.address %></td>
+      <td><%= link_to "Show", data_center_address %></td>
+      <td><%= link_to "Edit", edit_data_center_address_path(data_center_address) %></td>
+      <td><%= link_to "Destroy", data_center_address, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Data Center Address", new_data_center_address_path %></p>

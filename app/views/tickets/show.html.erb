@@ -21,8 +21,21 @@
   <%=h @ticket.serial %>
 </p>
 <p>
-	<strong>Vertragsnummer:</strong> 
-	<%=h @ticket.vertragsnummer %> 
+  <strong>Wartungslevel:</strong>
+  <%=h @ticket.level %>
+</p>
+<p>
+  <strong>Modell:</strong>
+  <%=h @ticket.model %>
+</p>
+<p>
+  <strong>Standort:</strong>
+  <%=h @ticket.location %>
+</p>
+
+<p>
+	<strong>Vertragsnummer:</strong>
+	<%=h @ticket.vertragsnummer %>
 </p> 
 <p>
   <strong>Sunid:</strong>
@@ -32,8 +45,8 @@
   <strong>Langtext:</strong></p>
   <%=simple_format(h(@ticket.langtext)) %>
 
-
-<%= render :partial => "infos" if @ticket.info_collection %> 
+<%= render :partial => "maillinks" %> 
+<%= render :partial => "infos" if @ticket.server_info %> 
 
 <p>
   <%= link_to "Edit", edit_ticket_path(@ticket) %> |

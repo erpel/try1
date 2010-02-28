@@ -46,7 +46,7 @@ bis zu Heute anzeigen.%>
   <% for ticket in @tickets %>
     <tr  onclick="window.location='<%= ticket_path(ticket) %>'" class="toHighlight PointerCursor <%= cycle 'zfarb0', 'zfarb1' %>">
       <td><%=h ticket.datum %></td>
-      <td><%=h ticket.ticketnummer %></td>
+      <td class="linkcolunm"><%= link_to ticket.ticketnummer, ticket_path(ticket), :onclick => 'event.stopPropagation()' %></td>
       <td class="prio<%= ' prio1' if ticket.prio==1 %>" ><%=h ticket.prio %></td>
       <td><%=h ticket.sunID %></td>
       <td><%=h ticket.serial %></td>
@@ -54,8 +54,8 @@ bis zu Heute anzeigen.%>
       <td><%=h ticket.model %></td>
       <td><%=h ticket.location %></td>
       <td><%=h ticket.short_langtext %></td>
-      <td onclick="event.stopPropagation()"><%= link_to "Edit", edit_ticket_path(ticket), :onclick => 'event.stopPropagation()' %></td>
-      <td onclick="event.stopPropagation()"><%= link_to "Delete", ticket, :confirm => 'Are you sure?', :method => :delete, :onclick => 'event.stopPropagation()'%></td>
+      <td class="linkcolunm" onclick="event.stopPropagation()"><%= link_to "Edit", edit_ticket_path(ticket), :onclick => 'event.stopPropagation()' %></td>
+      <td class="linkcolunm" onclick="event.stopPropagation()"><%= link_to "Delete", ticket, :confirm => 'Are you sure?', :method => :delete, :onclick => 'event.stopPropagation()'%></td>
     </tr>
   <% end %>
 </table>

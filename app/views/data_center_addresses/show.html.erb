@@ -1,0 +1,16 @@
+<% title "Data Center Address" %>
+
+<p>
+  <strong>Locationstring:</strong>
+  <%=h @data_center_address.locationstring %>
+</p>
+<p>
+  <strong>Address:</strong>
+  <%=h @data_center_address.address %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_data_center_address_path(@data_center_address) %> |
+  <%= link_to "Destroy", @data_center_address, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", data_center_addresses_path %>
+</p>

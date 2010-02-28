@@ -16,4 +16,5 @@
 		<%= "<li>"+link_to(nil, roles_path)+"</li>" if permitted_to? :index, :roles%>
 		<%= "<li>"+link_to(nil, infocollections_path)+"</li>" if permitted_to? :index, :infocollections%>
 		<%= "<li>"+link_to(nil, infobits_path)+"</li>" if permitted_to? :index, :infobits%>
+		<%= "<li>#{link_to(nil, data_center_addresses_path)}</li>"  %> 
 	</ul></div>

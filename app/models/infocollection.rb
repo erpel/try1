@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100226152119
+# Schema version: 20100228214716
 #
 # Table name: infocollections
 #
@@ -15,5 +15,5 @@ class Infocollection < ActiveRecord::Base
   has_many :infobits, :dependent => :delete_all
   has_many :infocollections
   
-  named_scope :matching_name, lambda { |name| { :conditions => ["? LIKE '%'||servertyp||'%'", name]}}
+  named_scope :matching_servertyp, lambda { |name| { :conditions => ["? LIKE '%'||servertyp||'%'", name]}}
 end
