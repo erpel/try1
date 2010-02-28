@@ -1,5 +1,6 @@
 # hack searchlogic to work with date_select / datetime_select in search form
 #http://gist.github.com/312833
+=begin
 module Searchlogic
   class Search
     # Accepts a hash of conditions.
@@ -20,8 +21,10 @@ module Searchlogic
       values.each do |condition, value|
         value.delete_if { |v| ignore_value?(v) } if value.is_a?(Array)
         next if ignore_value?(value)
-        send("#{condition}=", value)
+        send("#{condition}=", value )
+        #send("#{condition}=", value + 1.day )
       end
     end
   end
 end
+=end

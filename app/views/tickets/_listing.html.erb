@@ -1,12 +1,23 @@
-<% form_for @sf do |f| %> 
+<%# Füllen der datumssuchfelder mit den hier angegebenen Standardwerten die alle tickets von Beginn
+bis zu Heute anzeigen.%> 
+<% if params[:search].nil? %> 
+	<% dgtev = "2009-01-01".to_date  %> 
+	<% dltev = Date.today %> 
+<% else %>
+	<% dgtev = params[:search][:datum_gte] %>
+	<% dltev = params[:search][:datum_lte] %>
+<% end %> 
+ <% form_for @sf do |f| %> 
+
  <table id="tickettabelle" >
   <tr <%= 'style="display:none;"' if params[:commit]=="Filter"%>><td id="FilterTrigger" class="PointerCursor">Filter</td> </tr> 
    <tr class="FilterRows" <%= 'style="display:none;"' unless params[:commit]=="Filter"%>>
     <td id="tickettabelle_sf_datum">
-    	<div>
-    		From <%= f.date_select :datum_after, :use_month_numbers => true, :include_blank => true %><br />
-    		to <%= f.date_select :datum_before, :use_month_numbers => true %> 
-    	</div>
+    	From 
+    	<%= f.text_field :datum_gte, :value => dgtev, :size => 10 %> 
+    	<%# f.date_select :datum_gte, :use_month_numbers => true, :include_blank => true, :start_year => 2009, :end_year => Time.now.year + 1, :prompt => true %>
+    	to <%= f.text_field :datum_lte, :value => dltev, :size => 10 %> 
+    	<%# f.date_select :datum_lte, :use_month_numbers => true, :start_year => 2009, :end_year => Time.now.year + 1, :prompt => false, :default => 1.days.from_now %>
     </td>
     <td id="tickettabelle_sf_ticketnummer"><%= f.text_field :ticketnummer_like, :size => 15 %></td>
     <td id="tickettabelle_sf_prio"><%= f.text_field :prio_like, :size => 3 %></td>
