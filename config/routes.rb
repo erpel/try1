@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :e_mail_texts
+
   map.resources :data_center_addresses
 
 	map.resources		:infocollections, :infobits, :roles, :tickets, :assets, :users

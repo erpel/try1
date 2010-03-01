@@ -1,24 +1,13 @@
-<% #This is probably the ugliest part of the entire application. shameful! %> 
-<div id="maillinks">
-<% subject = "#{@ticket.ticketnummer}"
-subject = "#{subject} Sun SR# #{@ticket.sunID}" unless @ticket.sunID.nil? || @ticket.sunID.empty?
-body = "Server: #{@ticket.serial}"
-body = body + "\n\nVertragsnummer: #{@ticket.vertragsnummer.to_s}" unless 
- @ticket.vertragsnummer.nil?  || @ticket.vertragsnummer.empty?
-body = body + "\n\nStandort: #{@ticket.location}" unless @ticket.location.nil?  || 
- @ticket.location.empty?%>
-	<p><%= mailto_link("Send Mail", :body => body, :subject => subject) %> </p> 
-	
-<% subject = "PARTS ONLY RSS Aachen #{@ticket.serial}"
-body = "Sehr geehrte Damen und Herren\n\n Bitte bearbeiten sie folgende Ersatzteilbestellung:\n\n
-Partnummer: PARTNR"
-body = body + "\n\nSystem: #{@ticket.serial.to_s}" unless 
- @ticket.serial.nil?  || @ticket.serial.empty?
-body = body + "\n\nVertragsnummer: #{@ticket.vertragsnummer.to_s}" unless 
- @ticket.vertragsnummer.nil?  || @ticket.vertragsnummer.empty?
-shipit = DataCenterAddress.matching_address(@ticket.location).first.address
-shipit["TICKETNR"] = @ticket.ticketnummer
-body = body + "\n\nLieferadresse:\n#{shipit}" %>
-	<p><%= mailto_link("Part order mail", :body => body, :subject => subject,
-	 :to => "customercare@sun.com.copythat.de") %> </p> 
+<div id="maillinks">	
+<% EMailText.all.each do |m| %> 
+	<% body = m.body%>
+	<% body.gsub!("_TICKETNR",@ticket.ticketnummer) unless @ticket.ticketnummer.blank? %>
+	<% body.gsub!("_SUNID",@ticket.sunID) unless @ticket.sunID.blank? %>
+	<% body.gsub!("_SERIAL",@ticket.serial) unless @ticket.serial.blank? %>
+	<% body.gsub!("_VERTRAGSNR",@ticket.vertragsnummer) unless @ticket.vertragsnummer.blank? %>
+	<% body.gsub!("_ADDRESS",DataCenterAddress.matching_address(@ticket.location).first.address) unless @ticket.location.blank? %>
+	<% body.gsub!("_LOCATION",@ticket.location) unless @ticket.location.blank? %>
+	<p><%= mailto_link(m.name, :to => m.to, :subject => m.subject, :body => body) %> </p>
+<% end %>
+
 </div>

@@ -1,0 +1,23 @@
+<% title "E Mail Texts" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>To</th>
+    <th>Subject</th>
+    <th>Body</th>
+  </tr>
+  <% for e_mail_text in @e_mail_texts %>
+    <tr>
+      <td><%=h e_mail_text.name %></td>
+      <td><%=h e_mail_text.to %></td>
+      <td><%=h e_mail_text.subject %></td>
+      <td><%=h e_mail_text.body %></td>
+      <td><%= link_to "Show", e_mail_text %></td>
+      <td><%= link_to "Edit", edit_e_mail_text_path(e_mail_text) %></td>
+      <td><%= link_to "Destroy", e_mail_text, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New E Mail Text", new_e_mail_text_path %></p>

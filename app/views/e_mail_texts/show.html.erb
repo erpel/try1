@@ -1,0 +1,25 @@
+<% title "E Mail Text" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @e_mail_text.name %>
+</p>
+<p>
+  <strong>To:</strong>
+  <%=h @e_mail_text.to %>
+</p>
+<p>
+  <strong>Subject:</strong>
+  <%=h @e_mail_text.subject %>
+</p>
+<p>
+  <strong>Body:</strong>
+  <%=h @e_mail_text.body %>
+</p>
+
+
+<p>
+  <%= link_to "Edit", edit_e_mail_text_path(@e_mail_text) %> |
+  <%= link_to "Destroy", @e_mail_text, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", e_mail_texts_path %>
+</p>
