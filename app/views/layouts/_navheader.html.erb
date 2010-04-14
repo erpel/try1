@@ -16,6 +16,6 @@
 		<%= "<li>"+link_to(nil, roles_path)+"</li>" if permitted_to? :index, :roles%>
 		<%= "<li>"+link_to("Server", infocollections_path)+"</li>" if permitted_to? :index, :infocollections%>
 		<%= "<li>"+link_to("Infos", infobits_path)+"</li>" if permitted_to? :index, :infobits%>
-		<%= "<li>#{link_to("Adressen", data_center_addresses_path)}</li>"  %> 
-		<%= "<li>#{link_to("Vorlagen", e_mail_texts_path)}</li>"  %> 
+		<%= "<li>#{link_to("Adressen", data_center_addresses_path)}</li>"  if permitted_to? :index, :data_center_addresses%> 
+		<%= "<li>#{link_to("Vorlagen", e_mail_texts_path)}</li>" if permitted_to? :index, :e_mail_texts %> 
 	</ul></div>
