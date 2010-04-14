@@ -1,12 +1,13 @@
 <div id="maillinks">	
 <% EMailText.all.each do |m| %> 
 	<% body = m.body%>
-	<% body.gsub!("_TICKETNR",@ticket.ticketnummer) unless @ticket.ticketnummer.blank? %>
 	<% body.gsub!("_SUNID",@ticket.sunID) unless @ticket.sunID.blank? %>
 	<% body.gsub!("_SERIAL",@ticket.serial) unless @ticket.serial.blank? %>
 	<% body.gsub!("_VERTRAGSNR",@ticket.vertragsnummer) unless @ticket.vertragsnummer.blank? %>
 	<% body.gsub!("_ADDRESS",DataCenterAddress.matching_address(@ticket.location).first.address) unless @ticket.location.blank? %>
 	<% body.gsub!("_LOCATION",@ticket.location) unless @ticket.location.blank? %>
+	<%#ticketnummer has to be inserted after address weil address einen platzhalter für ticketnummer enthält %> 
+	<% body.gsub!("_TICKETNR",@ticket.ticketnummer) unless @ticket.ticketnummer.blank?%>
 	<p><%= mailto_link(m.name, :to => m.to, :subject => m.subject, :body => body) %> </p>
 <% end %>
 
