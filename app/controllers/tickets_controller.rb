@@ -4,7 +4,7 @@ class TicketsController < ApplicationController
 
 
 	def index
-		@sf = Ticket.descend_by_datum.search(params[:search])
+		@sf = Ticket.descend_by_created_at.search(params[:search])
 		if params[:page] == "all"
 			@tickets = Ticket.all
 			render "index_all" and return
