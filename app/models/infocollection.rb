@@ -13,7 +13,6 @@
 class Infocollection < ActiveRecord::Base
   attr_accessible :servertyp, :name
   has_many :infobits, :dependent => :delete_all
-  has_many :infocollections
   
   named_scope :matching_servertyp, lambda { |name| { :conditions => ["? LIKE '%'||servertyp||'%'", name]}}
 end
