@@ -11,8 +11,18 @@
 #
 
 class Infocollection < ActiveRecord::Base
-  attr_accessible :servertyp, :name
-  has_many :infobits, :dependent => :delete_all
-  
-  named_scope :matching_servertyp, lambda { |name| { :conditions => ["? LIKE '%'||servertyp||'%'", name]}}
+	attr_accessible :servertyp, :name
+	has_many :infobits, :dependent => :delete_all
+	
+	
+	#Alle Servertypen aus der DB laden und in rails einen passenden suchen.
+	#Hier wird rückwärts geguckt welcher servertyp im übergebenen String vorkommt und das 
+	#entsprechende Objekt zurück gegeben
+	def self.search_servertyp(name)
+		Infocollection.all.each do |collection|
+			return collection if name.downcase.include? collection.servertyp.downcase
+		end
+		return 
+	end
+
 end

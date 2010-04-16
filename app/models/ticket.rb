@@ -34,7 +34,7 @@ class Ticket < ActiveRecord::Base
 	end
 
 	def server_info
-		@server_info ||= Infocollection.matching_servertyp(model).first
+		Infocollection.search_servertyp(model)
 	end
 
 #implementierung von short_langtext nach 
