@@ -34,7 +34,8 @@ class Ticket < ActiveRecord::Base
 	end
 
 	def server_info
-		Infocollection.search_servertyp(model)
+		#Wenn model vorhanden, entsprechende infocollection zurŸck geben.
+		Infocollection.search_servertyp(model) if !model.nil?
 	end
 
 #implementierung von short_langtext nach 
@@ -53,12 +54,15 @@ class Ticket < ActiveRecord::Base
 	
 	
 	private
+	#FŸllt das Ticket automatisch mit den Daten des passenden Assets sofern die Seriennummer
+	#gefunden wird
 	def fill_from_asset
-		asset = Asset.serial_equals(self.serial).first
-		self.vertragsnummer = asset.vertragsnummer
-		self.location = asset.standortOrt
-		self.model = asset.modell
-		self.level = asset.mla
+		if asset = Asset.serial_equals(self.serial).first
+			self.vertragsnummer = asset.vertragsnummer
+			self.location = asset.standortOrt
+			self.model = asset.modell
+			self.level = asset.mla
+		end
 	end
 
 end
