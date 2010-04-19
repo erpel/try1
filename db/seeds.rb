@@ -7,4 +7,6 @@
 #   Major.create(:name => 'Daley', :city => cities.first)
 User.create(:login => 'admin', :password => 'admin', :password_confirmation => 'admin')
 Role.create(:name => 'superuser')
-Role.first.users<<User.first
+Role.create(:name => 'admin')
+Role.create(:name => 'user')
+Role.name_equals("superuser").first.users<<User.login_equals("admin").first
