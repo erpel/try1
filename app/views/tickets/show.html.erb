@@ -1,4 +1,5 @@
 <% title "Ticket #{@ticket.ticketnummer}" %>
+<% a=Asset.serial_is(@ticket.serial).first%>
 
 <p>
   <strong>Datum:</strong>
@@ -53,3 +54,56 @@
   <%= link_to "Destroy", @ticket, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "Back", :back %>
 </p>
+
+<div style="font-size: 10pt;">
+	  <table>
+		  <tr>
+			  <th>day</th>
+			  <th>month</th>
+			  <th>year</th>
+			  <th>VQ</th>
+			  <th>incident</th>
+			  <th>prio</th>
+			  <th>level</th>
+			  <th>model</th>
+			  <th>location</th>
+			  <th>serial</th>
+			  <th>sunid</th>
+			  <th>vertrag</th>
+			  <th>assignment</th>
+			  <th></th><th>managed by</th>
+			  <th>causecode</th>
+			  <th>fehlende infos</th>
+			  <th>solved by</th>
+			  <th>HW/SW</th>
+			  <th>langtext</th>
+		  </tr>
+		  <tr>
+			  <td><%= @ticket.datum.day %></td>
+			  <td><%=@ticket.datum.month %></td>
+			  <td><%= @ticket.datum.year%></td>
+			  <td>
+				<%="PE" if @ticket.owner.downcase.include?("erbeldi") %>
+				<%="AD" if @ticket.owner.downcase.include?("dub")%>
+				<%="ADMIN!ADMIN!" if @ticket.owner.downcase.include?("admin")  %>
+				<%="HB" if @ticket.owner.downcase.include?("beau")  %>
+				<%="TH" if @ticket.owner.downcase.include?("hast")  %>
+			</td>
+			  <td><%= @ticket.ticketnummer%></td>
+			  <td><%= @ticket.prio%></td>
+			  <td><%= @ticket.level%></td>
+			  <td><%= @ticket.model%></td>
+			  <td><%= @ticket.location%></td>
+			  <td><%= @ticket.serial%></td>
+			  <td><%= @ticket.sunID%></td>
+			  <td><%= @ticket.vertragsnummer%></td>
+			  <td><%= a.kontaktOSY_einheit%></td>
+			  <td></td><td><%= a.delivery_einheit%></td>
+			  <td><%= %></td>
+			  <td><%= %></td>
+			  <td><%= %></td>
+			  <td><%= %></td>
+			  <td><%=@ticket.langtext %></td>
+		  </tr>
+	</table>
+</div>
