@@ -12,3 +12,4 @@ db.pages
 config/deploy.rb
 Capfile
 config/database.yml
+public/stylesheets/base.css
