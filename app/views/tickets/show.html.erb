@@ -97,8 +97,8 @@
 			  <td><%= @ticket.serial%></td>
 			  <td><%= @ticket.sunID%></td>
 			  <td><%= @ticket.vertragsnummer%></td>
-			  <td><%= a.kontaktOSY_einheit%></td>
-			  <td></td><td><%= a.delivery_einheit%></td>
+			  <td><%= a && a.kontaktOSY_einheit%></td>
+			  <td></td><td><%= a && a.delivery_einheit%></td>
 			  <td><%= %></td>
 			  <td><%= %></td>
 			  <td><%= %></td>
