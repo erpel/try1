@@ -13,6 +13,10 @@
 class DataCenterAddress < ActiveRecord::Base
   attr_accessible :locationstring, :address
   
-	named_scope :matching_address, lambda { |address| { :conditions => ["? LIKE '%'||locationstring||'%'", address]}}
-
+	def self.matching_address(locationstring)
+		DataCenterAddress.all.each do |address|
+			return address if locationstring.downcase.include? address.locationstring.downcase
+		end
+		return 
+	end
 end
